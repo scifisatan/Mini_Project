@@ -7,7 +7,7 @@
 /*Declaring Global Variables*/
 char winner;
 char current_player;
-int game_still_going = 1;
+int game_still_going = 0;
 char board[9] = {
                     '-', '-', '-',
                     '-', '-', '-',
@@ -20,12 +20,11 @@ char player();
 void display_board();
 void handle_turn(char current_player);
 void flip_player();
-int check_if_game_over();
-int check_for_winner();
-int check_if_tie();
-int check_row();
-int check_column();
-int check_diag();
+void check_for_winner();
+void check_if_tie();
+void check_row();
+void check_column();
+void check_diag();
 
 
 
@@ -35,22 +34,21 @@ int main()
   system ("clear");
   current_player = player();
  
-  while (game_still_going == 1)
+  while (game_still_going == 0)
     {
       handle_turn (current_player);
-
-      game_still_going = check_if_game_over();
-
+      check_if_tie();
+      check_for_winner();
       flip_player();
     }
   if (winner == 'X' || winner == 'O')
     {
     printf ("%c won!", winner);
-  }
+    }
   else
     {
-    printf("Tie");
-  }
+    printf ("Tie");
+    }
   return 0;
 }
 
@@ -87,8 +85,6 @@ char player()
             printf("Try Again...\n\n");
             sleep(1);
         }
-      
-
     }
     display_board();
     return checks_player;
@@ -142,54 +138,45 @@ void handle_turn(char current_player)
 
         else 
         {
-            check = 0;        
+            check = 0;  
+            board[position] = current_player;      
         }
-        board[position] = current_player;
+        
         display_board();
     }
 }
 
 
-void check_if_game_over()
+
+
+void check_for_winner()
 {
-  check_for_winner ();
-  check_if_tie ();
-}
-
-int check_for_winner(()
-{
-  int row_winner = check_row ();
-  int column_winner = check_column ();
-  int diagonal_winner = check_diag ();
-
-  /*
-     if row_winner or column_winner or diagonal_winner:
-     winner = row_winner or column_winner or diagonal_winner
-
-     else:
-     # There was no win.
-     winner = None
-   */
+  check_row ();
+  check_column ();
+  check_diag ();
 }
 
 
-int check_row()
+void check_row()
 {
-
+  //return 1 if win
+  //return 0 if not
 }
 
-int check_column()
+void check_column()
 {
-
+  //return 1 if win
+  //return 0 if not
 }
 
-int check_diag()
+void check_diag()
 {
-
+  //return 1 if win
+  //return 0 if not
 }
                       
-int check_if_tie()
+void check_if_tie()
 {
-  
+  //return 1 if tie
+  //return 0 if not
 }
-
