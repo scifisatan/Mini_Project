@@ -43,12 +43,14 @@ int main()
 
       flip_player();
     }
-  if (winner == 'X' or winner == 'O')
+  if (winner == 'X' || winner == 'O')
     {
-    printf ("%c won!", winner)}
+    printf ("%c won!", winner);
+  }
   else
     {
-    printf ("Tie")}
+    printf("Tie");
+  }
   return 0;
 }
 
