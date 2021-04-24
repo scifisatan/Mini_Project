@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/*------------------------------------*/
 
 /*Declaring Global Variables*/
 char winner;
@@ -14,19 +15,20 @@ char board[9] = {
                     '-', '-', '-'
                 };
 
+/*------------------------------------*/
 
 /*Calling all the user defined functions*/
-char player();
-void display_board();
-void handle_turn(char current_player);
-void flip_player();
-void check_for_winner();
-void check_if_tie();
-void check_row();
-void check_column();
-void check_diag();
+char player(); //lets  player to choose X or O
+void display_board(); // Tic-Tac-Toe Board
+void handle_turn(char current_player); // Lets player to pick position
+void flip_player(); // Changes turn
+void check_for_winner(); // Checks if someone won
+void check_if_tie(); // Checks if there's a tie
+void check_row(); //Checks each row for win
+void check_column(); //Checks each column for win
+void check_diag(); //Checks each diag for win
 
-
+/*------------------------------------*/
 
 /*Main function*/
 int main()
@@ -43,15 +45,16 @@ int main()
     }
   if (winner == 'X' || winner == 'O')
     {
-    printf ("%c won!", winner);
+    printf("%c won!", winner);
     }
   else
     {
-    printf ("Tie");
+    printf("Tie");
     }
   return 0;
 }
 
+/*------------------------------------*/
 
 /*Lets the first player to choose  between X and O*/
 char player()
@@ -85,11 +88,14 @@ char player()
             printf("Try Again...\n\n");
             sleep(1);
         }
+      
+
     }
     display_board();
     return checks_player;
 }
 
+/*------------------------------------*/
 
 /*Tic Tac Toe Board*/
 void display_board()
@@ -103,6 +109,8 @@ void display_board()
 
 }
 
+/*------------------------------------*/
+
 void flip_player()
 {
   if (current_player == 'X')
@@ -115,6 +123,8 @@ void flip_player()
       current_player = 'X';
     }
 }
+
+/*------------------------------------*/
 
 void handle_turn(char current_player)
 {
@@ -146,8 +156,7 @@ void handle_turn(char current_player)
     }
 }
 
-
-
+/*------------------------------------*/
 
 void check_for_winner()
 {
@@ -156,6 +165,7 @@ void check_for_winner()
   check_diag ();
 }
 
+/*------------------------------------*/
 
 void check_row()
 {
@@ -163,20 +173,28 @@ void check_row()
   //return 0 if not
 }
 
+/*------------------------------------*/
+
 void check_column()
 {
   //return 1 if win
   //return 0 if not
 }
 
+/*------------------------------------*/
+
 void check_diag()
 {
   //return 1 if win
   //return 0 if not
 }
+
+/*------------------------------------*/
                       
 void check_if_tie()
 {
   //return 1 if tie
   //return 0 if not
 }
+
+/*------------------------------------*/
