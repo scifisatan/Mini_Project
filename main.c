@@ -23,9 +23,9 @@ void flip_player();
 void check_if_game_over():
 void check_for_winner());
 void check_if_tie());
-void check_row();
-void check_column();
-void check_diag();
+int check_row();
+int check_column();
+int check_diag();
 
 
 
@@ -147,3 +147,48 @@ void handle_turn(char current_player)
         display_board();
     }
 }
+
+
+void check_if_game_over()
+{
+  check_for_winner ();
+  check_if_tie ();
+}
+
+void check_for_winner(()
+{
+  int row_winner = check_row ();
+  int column_winner = check_column ();
+  int diagonal_winner = check_diag ();
+
+  /*
+     if row_winner or column_winner or diagonal_winner:
+     winner = row_winner or column_winner or diagonal_winner
+
+     else:
+     # There was no win.
+     winner = None
+   */
+}
+
+
+int check_row()
+{
+
+}
+
+int check_column()
+{
+
+}
+
+int check_diag()
+{
+
+}
+                      
+void check_for_tie()
+{
+  
+}
+
