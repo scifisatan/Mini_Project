@@ -49,7 +49,7 @@ char player()
 
     while(is_input_valid == 0)
     {
-        printff("Player 1!! \nWhat do you want to choose? (X/O) ");
+        printf("Player 1!! \nWhat do you want to choose? (X/O) ");
         scanf(" %c",&checks_player);
         if(checks_player == 'x')
         {
@@ -68,9 +68,9 @@ char player()
         else
         {
             sleep(0.5);
-            printff("Invalid Input!!\n");
+            printf("Invalid Input!!\n");
             sleep(1);
-            printff("Try Again...\n\n");
+            printf("Try Again...\n\n");
             sleep(1);
         }
       
@@ -83,11 +83,11 @@ char player()
 /*Tic Tac Toe Board*/
 void display_board()
 {
-    printff(" %c | %c | %c \n",board[0],board[1],board[2]);
-    printff("---|---|---\n");
-    printff(" %c | %c | %c \n",board[3],board[4],board[5]);
-    printff("---|---|---\n");
-    printff(" %c | %c | %c \n",board[6],board[7],board[8]);
+    printf(" %c | %c | %c \n",board[0],board[1],board[2]);
+    printf("---|---|---\n");
+    printf(" %c | %c | %c \n",board[3],board[4],board[5]);
+    printf("---|---|---\n");
+    printf(" %c | %c | %c \n",board[6],board[7],board[8]);
 
 }
 
@@ -106,21 +106,21 @@ void flip_player()
 
 void handle_turn(char current_player)
 {
-    printff("%c's turn\n",current_player);
+    printf("%c's turn\n",current_player);
     int check = 1;
     int position;
     while (check == 1)
     {
-        printff("Choose a postiton from 1 to 9: ");
+        printf("Choose a postiton from 1 to 9: ");
         scanf("%d", position);
         if (position > 9)
         {
-            printff("Invalid Input");
+            printf("Invalid Input");
         }
 
         else if (board[position] != '-')
         {
-            printff("You can't go there");
+            printf("You can't go there");
         }
 
         else 
