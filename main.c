@@ -34,6 +34,16 @@ void check_diag(); //Checks each diag for win
 int main()
 {
   system ("clear");
+  printf("-------------------TIC TAC TOE---------------------");
+  sleep(0.5);
+  printf("\n             Let' start the game.\n");
+  sleep(1);
+  printf("The positions that will be used in this game are here: \n");
+  printf(" 1 | 2 | 3 \n");
+  printf("---|---|---\n");
+  printf(" 4 | 5 | 6 \n");
+  printf("---|---|---\n");
+  printf(" 7 | 8 | 9 \n\n");
   current_player = player();
  
   while (game_still_going == 0)
@@ -100,6 +110,7 @@ char player()
 /*Tic Tac Toe Board*/
 void display_board()
 {
+    system ("clear");
     printf("\n");
     printf(" %c | %c | %c \n",board[0],board[1],board[2]);
     printf("---|---|---\n");
