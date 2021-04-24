@@ -20,9 +20,9 @@ char player();
 void display_board();
 void handle_turn(char current_player);
 void flip_player();
-void check_if_game_over():
-void check_for_winner());
-void check_if_tie());
+int check_if_game_over();
+int check_for_winner();
+int check_if_tie();
 int check_row();
 int check_column();
 int check_diag();
@@ -39,8 +39,7 @@ int main()
     {
       handle_turn (current_player);
 
-      check_for_winner ();
-      check_if_tie ();
+      game_still_going = check_if_game_over();
 
       flip_player();
     }
@@ -155,7 +154,7 @@ void check_if_game_over()
   check_if_tie ();
 }
 
-void check_for_winner(()
+int check_for_winner(()
 {
   int row_winner = check_row ();
   int column_winner = check_column ();
@@ -187,7 +186,7 @@ int check_diag()
 
 }
                       
-void check_for_tie()
+int check_if_tie()
 {
   
 }
