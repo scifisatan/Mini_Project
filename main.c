@@ -20,6 +20,12 @@ char player();
 void display_board();
 void handle_turn(char current_player);
 void flip_player();
+void check_if_game_over():
+void check_for_winner());
+void check_if_tie());
+void check_row();
+void check_column();
+void check_diag();
 
 
 
@@ -33,11 +39,18 @@ int main()
     {
       handle_turn (current_player);
 
+      check_for_winner ();
+      check_if_tie ();
 
-    flip_player();
-    }  
-    return 0;
- 
+      flip_player();
+    }
+  if (winner == 'X' or winner == 'O')
+    {
+    printf ("%c won!", winner)}
+  else
+    {
+    printf ("Tie")}
+  return 0;
 }
 
 
