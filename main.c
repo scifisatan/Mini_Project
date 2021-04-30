@@ -56,11 +56,11 @@ int main()
     }
   if (tie == 1)
     {
-      printf("Tie!!");
+      printf("\nTie!!");
     }
   else
     {
-      printf("%c won!", winner);
+      printf("\n%c won!", winner);
     }
   return 0;
 }
