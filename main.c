@@ -22,11 +22,11 @@ char player(); //lets  player to choose X or O
 void display_board(); // Tic-Tac-Toe Board
 void handle_turn(char current_player); // Lets player to pick position
 void flip_player(); // Changes turn
-void check_for_winner(); // Checks if someone won
+void check_for_winner(char current_player); // Checks if someone won
 void check_if_tie(); // Checks if there's a tie
-void check_row(); //Checks each row for win
-void check_column(); //Checks each column for win
-void check_diag(); //Checks each diag for win
+void check_row(char current_player); //Checks each row for win
+void check_column(char current_player); //Checks each column for win
+void check_diag(char current_player); //Checks each diag for win
 
 /*------------------------------------*/
 
@@ -50,7 +50,7 @@ int main()
     {
       handle_turn (current_player);
       check_if_tie();
-      check_for_winner();
+      check_for_winner(current_player);
       flip_player();
     }
   if (winner == 'X' || winner == 'O')
@@ -169,43 +169,78 @@ void handle_turn(char current_player)
 
 /*------------------------------------*/
 
-void check_for_winner()
+void check_for_winner(char current_player)
 {
-  check_row ();
-  check_column ();
-  check_diag ();
+  check_row (current_player);
+  check_column (current_player);
+  check_diag (current_player);
+  if (game_still_going == 1)
+  {
+    winner = current_player;
+  }
+  
 }
 
 /*------------------------------------*/
 
-void check_row()
+void check_row(char current_player)
 {
-  //return 1 if win
-  //return 0 if not
+
+  if((board[0]==board[1])&&(board[0]==board[2])&&(board[0]!='-'))
+  {
+    game_still_going = 1;
+  }
+  else if((board[3]==board[4])&&(board[3]==board[5])&&(board[3]!='-'))
+  {
+    game_still_going = 1;
+  }
+  else if((board[6]==board[7])&&(board[6]==board[8])&&(board[6]!='-'))
+  {
+    game_still_going = 1;
+  }
 }
 
 /*------------------------------------*/
 
-void check_column()
+void check_column(char current_player)
 {
-  //return 1 if win
-  //return 0 if not
+    if((board[0]==board[3])&&(board[0]==board[6])&&(board[0]!='-'))
+  {
+    game_still_going = 1;
+  }
+  else if((board[1]==board[4])&&(board[1]==board[7])&&(board[1]!='-'))
+  {
+    game_still_going = 1;
+  }
+  else if((board[2]==board[5])&&(board[2]==board[8])&&(board[2]!='-'))
+  {
+    game_still_going = 1;
+  }
 }
 
 /*------------------------------------*/
 
-void check_diag()
+void check_diag(char current_player)
 {
-  //return 1 if win
-  //return 0 if not
+    if((board[0]==board[4])&&(board[0]==board[8])&&(board[0]!='-'))
+  {
+    game_still_going = 1;
+  }
+  else if((board[2]==board[4])&&(board[2]==board[6])&&(board[2]!='-'))
+  {
+    game_still_going = 1;
+  }
+
 }
 
 /*------------------------------------*/
                       
 void check_if_tie()
 {
-  //return 1 if tie
-  //return 0 if not
+  if ((board[0]!='-')&&(board[1]!='-')&&(board[2]!='-')&(board[3]!='-')&&(board[4]!='-')&&(board[5]!='-')&&(board[6]!='-')&&(board[7]!='-')&&(board[8]!='-'))
+  {
+    game_still_going = 1;
+  }
 }
 
 /*------------------------------------*/
