@@ -250,7 +250,7 @@ void check_if_tie()
   }
   if (game_still_going == 1)
   {
-    winner = 'n'
+    winner = 'n';
   }
 
 }
