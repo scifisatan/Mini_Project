@@ -6,7 +6,7 @@
 /*------------------------------------*/
 
 /*Declaring Global Variables*/
-char msg[10];
+char msg = "clr" //use clr if windows, clear if linux
 int tie = 0;
 char winner;
 char current_player;
@@ -29,15 +29,13 @@ void check_if_tie(); // Checks if there's a tie
 void check_row(char current_player); //Checks each row for win
 void check_column(char current_player); //Checks each column for win
 void check_diag(char current_player); //Checks each diag for win
-void clear(); //clears the screen
 
 /*------------------------------------*/
 
 /*Main function*/
 int main()
 {
-
-  clear();
+  system(msg);
   printf("-------------------TIC TAC TOE---------------------");
   sleep(0.5);
   printf("\n             Let' start the game.\n");
@@ -48,7 +46,6 @@ int main()
   printf(" 4 | 5 | 6 \n");
   printf("---|---|---\n");
   printf(" 7 | 8 | 9 \n\n");
-
   current_player = player();
  
   while (game_still_going == 0)
@@ -115,7 +112,8 @@ char player()
 /*Tic Tac Toe Board*/
 void display_board()
 {
-    system ("cls");
+    system(msg);
+
     printf("\n");
     printf(" %c | %c | %c \n",board[0],board[1],board[2]);
     printf("---|---|---\n");
@@ -258,21 +256,6 @@ void check_if_tie()
     tie = 1;
   }
 
-}
-
-/*------------------------------------*/
-
-void clear();
-{
-  // _WIN32 macro
-  #ifdef _WIN32
-      system("clr");
-
-  #elif __APPLE__
-      system("clear");
-
-  #elif __linux__
-      system("clear");
 }
 
 /*------------------------------------*/
