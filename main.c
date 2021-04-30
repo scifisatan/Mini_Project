@@ -6,6 +6,7 @@
 /*------------------------------------*/
 
 /*Declaring Global Variables*/
+int tie = 0;
 char winner;
 char current_player;
 int game_still_going = 0;
@@ -53,13 +54,13 @@ int main()
       check_for_winner(current_player);
       flip_player();
     }
-  if (winner == 'X' || winner == 'O')
+  if (tie == 1)
     {
-    printf("%c won!", winner);
+      printf("Tie!!");
     }
   else
     {
-    printf("Tie");
+      printf("%c won!", winner);
     }
   return 0;
 }
@@ -250,7 +251,7 @@ void check_if_tie()
   }
   if (game_still_going == 1)
   {
-    winner = 'n';
+    tie = 1;
   }
 
 }
