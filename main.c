@@ -33,7 +33,7 @@ void check_diag(char current_player); //Checks each diag for win
 /*Main function*/
 int main()
 {
-  system ("clear");
+  system ("cls");
   printf("-------------------TIC TAC TOE---------------------");
   sleep(0.5);
   printf("\n             Let' start the game.\n");
@@ -110,7 +110,7 @@ char player()
 /*Tic Tac Toe Board*/
 void display_board()
 {
-    system ("clear");
+    system ("cls");
     printf("\n");
     printf(" %c | %c | %c \n",board[0],board[1],board[2]);
     printf("---|---|---\n");
@@ -174,10 +174,7 @@ void check_for_winner(char current_player)
   check_row (current_player);
   check_column (current_player);
   check_diag (current_player);
-  if (game_still_going == 1)
-  {
-    winner = current_player;
-  }
+  
   
 }
 
@@ -197,6 +194,11 @@ void check_row(char current_player)
   else if((board[6]==board[7])&&(board[6]==board[8])&&(board[6]!='-'))
   {
     game_still_going = 1;
+  }
+
+  if (game_still_going == 1)
+  {
+    winner = current_player;
   }
 }
 
@@ -231,6 +233,11 @@ void check_diag(char current_player)
     game_still_going = 1;
   }
 
+  if (game_still_going == 1)
+  {
+    winner = current_player;
+  }
+
 }
 
 /*------------------------------------*/
@@ -241,6 +248,11 @@ void check_if_tie()
   {
     game_still_going = 1;
   }
+  if (game_still_going == 1)
+  {
+    winner = 'n'
+  }
+
 }
 
 /*------------------------------------*/
