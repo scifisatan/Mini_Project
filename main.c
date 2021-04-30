@@ -6,6 +6,7 @@
 /*------------------------------------*/
 
 /*Declaring Global Variables*/
+char msg[10];
 int tie = 0;
 char winner;
 char current_player;
@@ -28,13 +29,15 @@ void check_if_tie(); // Checks if there's a tie
 void check_row(char current_player); //Checks each row for win
 void check_column(char current_player); //Checks each column for win
 void check_diag(char current_player); //Checks each diag for win
+void clear(); //clears the screen
 
 /*------------------------------------*/
 
 /*Main function*/
 int main()
 {
-  system ("cls");
+
+  clear();
   printf("-------------------TIC TAC TOE---------------------");
   sleep(0.5);
   printf("\n             Let' start the game.\n");
@@ -45,6 +48,7 @@ int main()
   printf(" 4 | 5 | 6 \n");
   printf("---|---|---\n");
   printf(" 7 | 8 | 9 \n\n");
+
   current_player = player();
  
   while (game_still_going == 0)
@@ -56,11 +60,11 @@ int main()
     }
   if (tie == 1)
     {
-      printf("\nTie!!");
+      printf("Tie");
     }
   else
     {
-      printf("\n%c won!", winner);
+      printf("%c won!", winner);
     }
   return 0;
 }
@@ -254,6 +258,21 @@ void check_if_tie()
     tie = 1;
   }
 
+}
+
+/*------------------------------------*/
+
+void clear();
+{
+  // _WIN32 macro
+  #ifdef _WIN32
+      system("clr");
+
+  #elif __APPLE__
+      system("clear");
+
+  #elif __linux__
+      system("clear");
 }
 
 /*------------------------------------*/
