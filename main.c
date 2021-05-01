@@ -6,7 +6,7 @@
 /*------------------------------------*/
 
 /*Declaring Global Variables*/
-char msg = 'clr' //use clr if windows, clear if linux
+char msg = 'clr' //use clr if windows, clear if linux //find better way to make it cross-os compatible
 int tie = 0;
 char winner;
 char current_player;
@@ -46,6 +46,7 @@ int main()
   printf(" 4 | 5 | 6 \n");
   printf("---|---|---\n");
   printf(" 7 | 8 | 9 \n\n");
+  
   current_player = player();
  
   while (game_still_going == 0)
@@ -69,7 +70,7 @@ int main()
 /*------------------------------------*/
 
 /*Lets the first player to choose  between X and O*/
-char player()
+char player() //use recursive funtion for optimization
 {
     char checks_player;
     int is_input_valid = 0;
@@ -245,8 +246,8 @@ void check_diag(char current_player)
 
 /*------------------------------------*/
                       
-void check_if_tie()
-{
+void check_if_tie() // find better way to deal with tie //also find better way to check tie
+{ 
   if ((board[0]!='-')&&(board[1]!='-')&&(board[2]!='-')&(board[3]!='-')&&(board[4]!='-')&&(board[5]!='-')&&(board[6]!='-')&&(board[7]!='-')&&(board[8]!='-'))
   {
     game_still_going = 1;
