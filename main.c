@@ -6,7 +6,7 @@
 /*------------------------------------*/
 
 /*Declaring Global Variables*/
-char msg = 'clr' //use clr if windows, clear if linux //find better way to make it cross-os compatible
+char msg = 'clr'; //use clr if windows, clear if linux //find better way to make it cross-os compatible
 int tie = 0;
 char winner;
 char current_player;
